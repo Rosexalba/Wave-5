@@ -17,3 +17,13 @@ STEP 2 — Build a message:
 
 STEP 3 — Log the message to the console.
 */
+
+const profileFirst = "Alex";
+const profileLast = "Rivera";
+let profileAge = 28;
+let profileMember = true;
+let profileCity = "Monterrey";
+
+// using template literal
+let message = `Name: ${profileFirst} ${profileLast} - Age: ${profileAge} - Member: ${profileCity}`;
+console.log(message);
