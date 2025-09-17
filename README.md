@@ -1,1 +1,10 @@
-# Wave-5-Level-2
+# Wave-5-JavaScript
+
+- js mentoriship curriculum 
+   - Set up console
+   - Variables
+   - DataTypes
+   - Operators & Expressions
+
+- Practice-HomeWork
+   - mini-projects 
