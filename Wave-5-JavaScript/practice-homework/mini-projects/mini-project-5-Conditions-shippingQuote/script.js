@@ -45,3 +45,77 @@ STEP 7 — Output
 STEP 8 — Wiring
   When quoteBtn is clicked, compute and show the quote.
 */
+
+
+// Step 1 : Selection
+  // weightInput, distanceInput, isMemberInput, quoteBtn, output
+
+  const weightInput = document.getElementById("weightInput");
+  const distanceInput = document.getElementById("distanceInput");
+  const isMemberInput = document.getElementById("isMemberInput");
+  const quoteBtn = document.getElementById("quoteBtn");
+  const output = document.getElementById("output");
+
+// STEP 2 — Base numbers
+  // baseFee equals 5
+  // perKg equals 1.2
+
+  const baseFee = 5;
+  const perKg = 1.2;
+
+  // wiring 
+  quoteBtn.addEventListener("click", () => {
+  const weight = Number(weightInput.value);
+  const distance = Number(distanceInput.value);
+
+// Step 3 Validation
+
+if (weight <= 0 || distance <= 0) {
+  output.textContent = "Enter Valid Values";
+  return;
+}
+
+// Step 4 Distance Surchage 
+     // we dont use textContent here because we are just figuring out the surcharge number in this step 
+let surcharge;
+if (distance > 1000) {
+  surcharge = 15;
+} else if (distance > 500) {
+  surcharge = 7;
+} else {
+  surcharge = 0;
+}
+
+// Step 5 Oversize Fee
+// let oversize;
+// if(weight >= 20) {
+//   oversize = 10;
+// } else {
+//   oversize = 0;
+// }
+ // Ternary option 
+let oversize = (weight > 20) ? 10 : 0; 
+
+// Step 6 Member Discount
+let discountRate = isMemberInput.checked ? 0.10 : 0;
+const preDiscount = baseFee + (weight * perKg) + surcharge + oversize;
+const discountAmount = preDiscount * discountRate;
+const total = preDiscount - discountAmount;
+  
+// Step 7 Output
+output.textContent =
+`Shipping Quote
+Base: $${baseFee.toFixed(2)}
+Weight: $${(weight * perKg).toFixed(2)}
+Surcharge: $${surcharge.toFixed(2)}
+Oversize: $${oversize.toFixed(2)}
+Discount: -$${discountAmount.toFixed(2)}
+Total: $${total.toFixed(2)}`;
+  });
+
+// Step 8 Wiring
+
+// quoteBtn.addEventListener("click", () => {
+//   const weight = Number(weightInput.value);
+//   const distance = Number(distanceInput.value);
+// });

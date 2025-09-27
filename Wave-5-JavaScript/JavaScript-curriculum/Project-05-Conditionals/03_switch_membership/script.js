@@ -2,7 +2,10 @@
 //
 // STEP 1: GET ELEMENTS
 // - select#tierSelect, button#showBtn, p#result
-//
+
+
+
+
 // STEP 2: ADD CLICK LISTENER
 // - Read the current value of the select (e.target.value or tierSelect.value).
 //
