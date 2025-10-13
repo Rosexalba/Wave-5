@@ -33,3 +33,5 @@
 
 // STEP 12: Use a while loop to loop through letters in the same string
 // (Use an index starting at 0; while index < word.length, log word[index]; then increment.)
+
+

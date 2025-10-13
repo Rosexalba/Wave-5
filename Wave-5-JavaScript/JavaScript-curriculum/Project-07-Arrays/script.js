@@ -73,3 +73,5 @@
 // ==========================
 // STEP 12a: Use reduce to count the total number of letters across all fruits.
 // STEP 12b: Use reduce again to join all fruit names into a single string separated by commas.
+
+

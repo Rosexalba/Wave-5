@@ -119,3 +119,8 @@
 // STEP 22: Use filter with an anonymous function to keep only even numbers
 
 // STEP 23: Use reduce with an anonymous function to sum numbers in an array
+
+// ==========================
+// TRADITIONAL FUNCTIONS
+// ==========================
+

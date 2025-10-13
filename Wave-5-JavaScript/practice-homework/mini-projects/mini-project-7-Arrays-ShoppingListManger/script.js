@@ -28,3 +28,4 @@ STEP 6 — Wiring
   Wire addBtn to handleAdd, removeBtn to handleRemove, and clearBtn to handleClear.
   Call renderAll once so the page reflects the current state.
 */
+
