@@ -29,3 +29,61 @@ STEP 6 — Wiring
   Call renderAll once so the page reflects the current state.
 */
 
+// Step 1 : Dara and selection
+let items = [];       // empty list named items
+
+const itemInput = document.getElementById("itemInput");
+const addBtn = document.getElementById("addBtn");
+const removeBtn = document.getElementById("removeBtn");
+const clearBtn = document.getElementById("clearBtn");
+const list = document.getElementById("list");
+const countLabel = document.getElementById("countLabel");
+
+// Step 2: render helper
+function renderAll() {
+  list.innerHTML = "";  // clear current list 
+
+  items.forEach(item => {
+    const li = document.createElement("li");      
+    li.textContent = item;                       
+    list.appendChild(li);                                     
+  });
+
+  countLabel.textContent = "Count: " + items.length;
+}
+
+// step 3 : addd 
+function handleAdd() {
+  const text = itemInput.value.trim();
+  if (text !== "") {
+    items.push(text);            // add
+    renderAll();
+   itemInput.value= "";       // clear input after adding 
+   } 
+}
+
+// step 4: remove last 
+function handleRemove() {
+  if (items.length > 0) {
+    items.pop();
+    renderAll();
+  }
+}
+
+// step 5: clear
+function handleClear() {
+  items = [] ;
+  renderAll();
+}
+
+// step 6 wiring 
+
+addBtn.addEventListener("click", handleAdd);
+removeBtn.addEventListener("click", handleRemove);
+clearBtn.addEventListener("click", handleClear);
+
+renderAll();
+
+
+
+
