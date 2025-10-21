@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- STEP 3: Link script.js with defer -->
-    <script src="script.js" defer></script>
+     <script src="script.js" defer></script>
   </head>
   <body>
     <!-- STEP 4: Add a container <main class="app"> -->
@@ -43,12 +43,14 @@
       <!-- Add an empty <ul id="taskList"></ul> where tasks appear -->
            <section>
             <h2>Tasks</h2>
-            <input id="taskInput" placeholder="Type a task" />
-            <select id="prioritySelect">
+            <input id="taskInput" placeholder="Type a task"/>
+            <select id ="prioritySelect">                          
+              <!-- Could not figure out why theres a red line under Select -->
               <option>Low</option>
               <option>Medium</option>
               <option>High</option>
             </select>
+            
             <span id="priorityLabel">Priority: Low </span>
             <button id="btnAdd">Add Task</button>
             <ul id="taskList"></ul>
@@ -60,15 +62,14 @@
         <section>
           <h2>Form Demo</h2>
           <form id="demoForm">
+            <p id="formMsg"></p>
             <input id="nameInput" placeholder="Your Name" />
             <button type ="submit"> Submit</button>
           </form>
         </section>
-
       <!-- ========== HOVER CARD ========== -->
       <!-- STEP 10: Add a <div id="hoverCard" class="card">Hover me</div> -->
        <div id="hoverCard" class="card">Hover me</div>
-       <script src="script.js"></script>
     </main>
   </body>
 </html>
