@@ -13,7 +13,7 @@ const countValue = document.getElementById("countValue");
 const btnTheme = document.getElementById("btnTheme");
 
 const taskInput = document.getElementById("taskInput");
-// const prioritySelect = document.getElementById("prioritySelect");
+const prioritySelect = document.getElementById("prioritySelect");
 const priorityLabel = document.getElementById("priorityLabel");
 const btnAdd = document.getElementById("btnAdd");
 const taskList = document.getElementById("taskList");
