@@ -70,4 +70,4 @@ addBtn.addEventListener("click", () => {
 // - Add a ❌ button to delete the todo
 
 
-// you can checkk your local stroage in the application section in your console (:
+// you can checkk your local stroage in the application section in your console 
