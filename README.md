@@ -12,8 +12,15 @@
    - Events & DOM
    - Objects
 
+- Local Storage 
+
+- AyncAwait_Axios_fetch
+
+- API Usage 
+
 - Practice-HomeWork
    - mini-projects 
+   - Quiz-Quest
 
-- Quiz-Quest
+
 
