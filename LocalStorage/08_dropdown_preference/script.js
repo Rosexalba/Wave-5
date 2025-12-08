@@ -11,7 +11,8 @@
 // - const message = document.getElementById("message");
 
 // ✍️ Write your code for STEP 1 below:
-
+     const languageSelect = document.getElementById("languageSelect");
+     const message = document.getElementById("message");
 // 🗣️ STEP 2: CREATE A MESSAGES OBJECT (DICTIONARY)
 // INSTRUCTION:
 // - Make an object called messages with keys for each language code and a sentence for each.
@@ -25,6 +26,13 @@
 // WHY: We’ll look up messages[chosenLanguage] when we update the UI.
 
 // ✍️ Write your code for STEP 2 below:
+ const messages = {
+         en: "Welcome! Your language is saved.",
+         es: "¡Bienvenida! Tu idioma se ha guardado.",
+         fr: "Bienvenue ! Votre langue a été enregistrée.",
+         de: "Willkommen! Ihre Sprache wurde gespeichert.",
+         ja: "ようこそ！言語が保存されました。"
+      }
 
 // 🔧 STEP 3: WRITE A HELPER FUNCTION TO APPLY A LANGUAGE
 // Name it: applyLang
@@ -37,9 +45,13 @@
 //      HINT: languageSelect.value = lang
 //   3) Update the paragraph’s text with messages[lang]. If missing, use messages.en as a fallback.
 //      HINT: message.textContent = messages[lang] || messages.en
-
+      
 // ✍️ Write your code for STEP 3 below:
-
+   function applyLang(lang) {
+      document.documentElement.setAttribute("lang", lang);
+      languageSelect.value = lang;
+      message.textContent = messages[lang] || messages.en;
+}
 // 💾 STEP 4: READ ANY PREVIOUSLY SAVED LANGUAGE FROM localStorage
 // INSTRUCTION:
 // - Use localStorage.getItem("language") to read the saved value (returns a STRING or null).
@@ -47,7 +59,7 @@
 // WHY: localStorage always stores strings, e.g., "en", "es", etc.
 
 // ✍️ Write your code for STEP 4 below:
-
+        const savedLang = localStorage.getItem("language");
 // ✅ STEP 5: CHECK THAT THE SAVED VALUE IS A VALID OPTION
 // INSTRUCTION:
 // - We only trust savedLang if an <option> with that value exists in the dropdown.
@@ -57,20 +69,20 @@
 // Save the boolean result in a variable named optionExists.
 
 // ✍️ Write your code for STEP 5 below:
-
+       const optionExists = !!languageSelect.querySelector(`option[value="${savedLang}"]`);
 // 🌐 STEP 6: DECIDE THE INITIAL LANGUAGE
 // INSTRUCTION:
 // - If optionExists is true, use savedLang; otherwise use "en".
 // - Save the result in a variable named initialLang.
 
 // ✍️ Write your code for STEP 6 below:
-
+    const initialLang = optionExists ? savedLang : "en";
 // ▶️ STEP 7: APPLY THE INITIAL LANGUAGE ON PAGE LOAD
 // INSTRUCTION:
 // - Call your applyLang function with initialLang so the page shows the correct language immediately.
 
 // ✍️ Write your code for STEP 7 below:
-
+     applyLang(initialLang);
 // 💿 STEP 8: SAVE NEW CHOICES WHEN THE USER CHANGES THE DROPDOWN
 // INSTRUCTION:
 // - Add an event listener on languageSelect for the "change" event.
@@ -81,7 +93,12 @@
 //     3) Call applyLang(chosen) to update the UI (html[lang], dropdown, paragraph).
 
 // ✍️ Write your code for STEP 8 below:
-
+    languageSelect.addEventListener("change", function() {
+    const chosen = languageSelect.value;
+    localStorage.setItem("language", chosen);
+    applyLang(chosen);
+}
+);
 // 🧪 OPTIONAL DEBUGGING (helpful while learning)
 // INSTRUCTION: After each step, add console.log checks (and then remove later):
 // - console.log("savedLang:", savedLang);
