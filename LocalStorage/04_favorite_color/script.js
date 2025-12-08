@@ -3,12 +3,19 @@
 // - An input where the user types their favorite color (id="colorInput")
 // - A button the user clicks to save the color (id="saveColorBtn")
 // - A display area where the color will be shown (id="colorDisplay")
-
+     const colorValue = document.getElementById("colorInput");
+     const button = document.getElementById("saveColorBtn");
+     const colorDisplay = document.getElementById("colorDisplay");
 // 💾 STEP 2: LOAD SAVED COLOR FROM localStorage
 // Use localStorage.getItem("favoriteColor") to check if a color was saved before.
 // If a saved color exists:
 // - Set the display text to that color
 // - Optionally change the text color to match for visual feedback
+const saveColor = localStorage.getItem("favoriteColor"); // loads saved color from local storage
+if (saveColor) {
+    colorDisplay.textContent = saveColor;
+    colorDisplay.style.color = saveColor;
+}
 
 // 🎯 STEP 3: SAVE COLOR WHEN BUTTON IS CLICKED
 // Add a click event listener to the "Save Color" button.
@@ -16,3 +23,11 @@
 // - Get the current value from the input field
 // - Save it using localStorage.setItem("favoriteColor", value)
 // - Update the display area with the color and style.
+
+button.addEventListener("click", () => {
+    const color = colorValue.value;
+    localStorage.setItem("favoriteColor", color);
+    colorDisplay.textContent = color;
+    colorDisplay.style.color = color; 
+
+});
