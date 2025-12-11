@@ -3,6 +3,9 @@
 // User selects the crypto coin
 // Button the user clicks to check price
 // Where we show the result
+    const cryptoSelect = document.getElementById("cryptoSelect");
+    const checkBtn = document.getElementById("checkBtn");
+    const priceDisplay = document.getElementById("priceDisplay");
 
 // 🧠 STEP 2: Add a click event listener to the button
 // - When the user clicks the button, we start the async function
@@ -23,3 +26,20 @@
 // - We use backticks and ${} to insert dynamic values
 
 // 🧠 STEP 8: Show an error message if the fetch fails
+   
+    checkBtn.addEventListener ("click", async () => {
+        const coinType = cryptoSelect.value;
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coinType}&vs_currencies=usd`;
+
+        try {
+            const response = await axios.get(url);
+            const price = await response.data[coinType].usd;
+            priceDisplay.innerHTML = `
+            <h2> ${coinType.toUpperCase()} </h2> 
+            <p> Price: $${price}</p>`;
+        }   catch (err) {
+            priceDisplay.innerHTML = `<p style= "color: red"> No data found </p>`;
+        }
+    });
+
+    // I'm getting it ! :)
