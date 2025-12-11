@@ -17,7 +17,7 @@
 
         try {
             const response = await axios.get(url);
-            const data = await response.data[0];
+            const data = response.data[0];
             const name = data.name.common;
             const capital = data.capital[0];
             const population = data.population.toLocaleString();
@@ -30,9 +30,13 @@
         }  catch (err) {
            countryDisplay.innerHTML = 
            "<p style= `color:red:`>System is down or the country doesnt exist </p>";
-        }
-        
+        }  
       })
+         // notes: fetch () is a built in browswer Axios: is a library you add to your index 
+                // fetch() ypu have to manually check for errors Axios: automatically throws error
+                // fetch() must await and convert into JSON using .json() Axios: automatically parses JSON no need to use await in this case
+
+
 
 // 🧠 STEP 3: Get the country name that the user typed
 // - `.value` gets the current text inside the input box
