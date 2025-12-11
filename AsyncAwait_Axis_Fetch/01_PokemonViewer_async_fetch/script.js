@@ -3,6 +3,9 @@
 // The text input where the user types the Pokémon's name
 // The button the user clicks to trigger the search
 // The container (div) where we'll show the Pokémon info
+   const pokemonInput = document.getElementById("pokemonInput");
+   const searchBtn = document.getElementById("searchBtn");
+   const result = document.getElementById("result");
 
 // 🧠 STEP 2: Add a click event listener to the button
 // - This means: "When the button is clicked, run this function."
@@ -33,4 +36,26 @@
 
 // 🧠 STEP 9: If something goes wrong, show the error message to the user
 // - This could happen if the Pokémon doesn’t exist or the API is down
+
+      searchBtn.addEventListener("click", async () => {               // async is saying the function is allowed to use await later
+        const name = pokemonInput.value.toLowerCase().trim();         // get value user typed
+        const url = `https://pokeapi.co/api/v2/pokemon/${name}`;      // inserts the name into the url
+        try {
+            const response = await fetch(url);                        // fetch the data : await means "wait until the API answers"
+            if (!response.ok) throw new Error("Pokemon not found");   // check if it failed :throw an error catch will handle
+            const data = await response.json();                       // convert to JSON
+
+            const image = data.sprites.front_default;                 // “Go into the API data, find the sprites section, then grab the front_default picture, and store it in a variable called image.”
+            const type = data.types[0].type.name;                     // [0] grabs the first one because their could be multiple
+                                                                     // inner.html update the page to show the name picture and type
+            result.innerHTML = `                        
+            <h1>${data.name}</h1>
+            <img src="${image}" alt="${data.name}"/>
+            <p>${type}</P>`;
+        } catch (err) {                                              // handle errors 
+            result.innerHTML = `<div>This Pokemon doesnt exist or the API is down ${err.message}<div>`;  // this message will run if error is found 
+        }
+        });
+
+
 
